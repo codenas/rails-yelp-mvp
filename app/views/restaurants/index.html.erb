@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>ALL RESTAURANTS</h1>
+<%= link_to 'Add a new Restaurant', new_restaurant_path, class: "btn btn-primary" %>
+
+  <div class="row" >
+    <%  @restaurants.each do |resto| %>
+    <div class="card">
+      <div class="col-md-4">
+        <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to resto.name, restaurant_path(resto) %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= resto.category %></h6>
+            <p class="card-text"><%= resto.address %></p>
+            <a href="#" class="card-link"><%= link_to 'Rate Restaurant', new_restaurant_review_path(resto), class: "btn btn-danger btn-sm" %></a>
+            <a href="#" class="card-link"><%= link_to 'Edit Restaurant', edit_restaurant_path(resto), class: "btn btn-info btn-sm" %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
